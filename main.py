@@ -15,26 +15,32 @@ import sys
 import argparse
 from packet_sniffer import PacketSniffer
 
+CYAN = "\033[96m"
+RED     = "\033[91m"
+YELLOW = "\033[93m"
+BLUE    = "\033[94m"
+RESET = "\033[0m"
 
 def print_banner():
-    """Print application banner"""
-    banner = """
-    ╔═══════════════════════════════════════════════════════════════╗
+   
+    
+    banner = f"""
+    {CYAN}╔═══════════════════════════════════════════════════════════════╗
     ║                                                               ║
-    ║              NETWORK PACKET SNIFFER & DECODER                 ║
+    ║{BLUE}              NETWORK PACKET SNIFFER & DECODER                 {CYAN}║
     ║                                                               ║
-    ║  Captures network packets and decodes encoded messages        ║
-    ║  Supports: Base64, Hex, URL encoding, ROT13, Plain text       ║
+    ║{BLUE}  Captures network packets and decodes encoded messages        {CYAN}║
+    ║{BLUE}  Supports: Base64, Hex, URL encoding, ROT13, Plain text       {CYAN}║
     ║                                                               ║
-    ╚═══════════════════════════════════════════════════════════════╝
+    ╚═══════════════════════════════════════════════════════════════╝{RESET}
     """
     print(banner)
 
-
 def print_usage_info():
     """Print usage information"""
-    info = """
-    [!] IMPORTANT: This tool requires root/administrator privileges
+    info = f"""
+    {RED}[!] IMPORTANT: This tool requires root/administrator privileges
+    
     
     Linux/Mac:   sudo python3 main.py
     Windows:     Run Command Prompt as Administrator, then: python main.py
@@ -45,7 +51,7 @@ def print_usage_info():
         3. Automatically detect and decode encoded messages
         4. Display detailed packet information
     
-    [+] Press Ctrl+C to stop capture early
+    [+] Press Ctrl+C to stop capture early{RESET}
     """
     print(info)
 
@@ -151,3 +157,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
